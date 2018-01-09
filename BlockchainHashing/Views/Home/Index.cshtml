@@ -1,0 +1,125 @@
+﻿@model BlockchainHashing.ViewModels.BlockchainViewmodel
+@{
+    ViewBag.Title = "Index";
+}
+
+<style>
+    body {
+        background-color: #eee;
+    }
+
+    .form {
+        max-width: 500px;
+        padding: 15px;
+        margin: 0;
+        background-color: #ddecde;
+        border-radius: 0.3em;
+    }
+
+    .form h2 {
+        margin-left: 5em;
+        margin-bottom: 1em;
+    }
+
+</style>
+
+<h1>BlockChain Using Sha-1 And MD5</h1>
+<button id="clone" class="btn btn-primary">Add More Blocks</button>
+<br />
+<br />
+
+ @using (Html.BeginForm("Index", "Home", FormMethod.Post, new { @class = "form" }))
+    {
+        <div class="main-div">
+            <div class="container" id="main">
+                <h2>Blockchain</h2>
+                <div class="form-group">
+                    <label for="firstName" class="col-sm-3 control-label">Block:</label>
+                    <div class="col-sm-9">
+                        @*<input type="text" id="Block" value="1" class="form-control" disabled="disabled">*@
+                        @Html.TextBoxFor(item => item.BlockId, new { @class = "form-control" })
+                    </div>
+                </div>
+                <br /><br /><br />
+                <div class="form-group">
+                    <label for="firstName" class="col-sm-3 control-label">Nonce:</label>
+                    <div class="col-sm-9">
+                        @*<input type="text" id="Nonce" class="form-control">*@
+                        @Html.TextBoxFor(item => item.Nonce, new { @class = "form-control", id = "Nonce" })
+                    </div>
+                </div>
+                <br /><br /><br />
+                <div class="form-group">
+                    <label for="Data" class="col-sm-3 control-label">Data:</label>
+                    <div class="col-sm-9">
+                        @*<textarea id="data" class="form-control" autofocus="autofocus"></textarea>*@
+                        @Html.TextAreaFor(item => item.Data, new { @class = "form-control", autofocus = "autofocus" })
+                    </div>
+                </div>
+                <br /><br /><br />
+                <div class="form-group">
+                    <label for="Previous Value" class="col-sm-3 control-label">Previous Value:</label>
+                    <div class="col-sm-9">
+                        @*<input type="text" class="form-control" id="previousvalue" disabled="disabled" >*@
+                        @Html.TextBoxFor(item => item.PreviousHash1, new { @class = "form-control", id = "previousvalue" })
+                    </div>
+                </div>
+                <br /><br /><br />
+                <div class="form-group">
+                    <label for="hash Value" class="col-sm-3 control-label">Hash:</label>
+                    <div class="col-sm-9">
+                        @*<input type="text" id="hash" disabled="disabled" class="form-control">*@
+                        @Html.TextBoxFor(item => item.Hash, new { id = "hash", @class = "form-control" })
+                    </div>
+                </div>
+                <br /><br /><br />
+
+                <div class="form-group">
+                    <div class="col-sm-9 col-sm-offset-3">
+                        <button class="btn btn-primary">Mine</button>&nbsp;&nbsp;
+                        <button type="submit" class="btn btn-primary">Hash data</button>
+                    </div>
+                </div>
+
+            </div> <!-- ./container -->
+        </div>
+    }
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+
+@*<script>
+    $(document).ready(function () {
+      
+        var block = null;
+        block=$()
+        $("#clone").click(function () {
+            $form = $("<form class='form1'></form>");
+            $form.append('<input type="button" value="button">');
+            $('body').append($form)
+        });
+    });
+</script>*@
+
+<script>
+    $(document).ready(function () {
+        var value = null;
+        $("#data").on("keyup", function () {
+            value = $('#data').val();
+            console.log(value);
+            $.ajax({
+                url: '/Home/Index',
+                type: 'POST',
+                data: { value},
+                success: function (data) {
+                    //alert(data);
+                    $('#hash').val(data);  
+                },
+                error: function (error) {
+                    $(that).remove();
+                    DisplayError(error.statusText);
+                }
+            });
+           
+        });
+    });
+</script>

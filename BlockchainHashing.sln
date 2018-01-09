@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlockchainHashing", "Blockc
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlockchainHashing.Tests", "BlockchainHashing.Tests\BlockchainHashing.Tests.csproj", "{AF3BAA33-64A3-4179-9FC4-334732C568E5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hashing", "Hashing\Hashing.csproj", "{9ED8B6AD-4C78-4178-8128-FA9D3209D315}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{AF3BAA33-64A3-4179-9FC4-334732C568E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AF3BAA33-64A3-4179-9FC4-334732C568E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AF3BAA33-64A3-4179-9FC4-334732C568E5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9ED8B6AD-4C78-4178-8128-FA9D3209D315}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9ED8B6AD-4C78-4178-8128-FA9D3209D315}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9ED8B6AD-4C78-4178-8128-FA9D3209D315}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9ED8B6AD-4C78-4178-8128-FA9D3209D315}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
